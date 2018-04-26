@@ -4,7 +4,7 @@ class Chest {
 
   protected $lock;
  //==========================================
-  public function __construct(Lock $lock){
+  public function __construct(Lock }}$lock){
 
     $this->lock = $lock;
 

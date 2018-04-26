@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>processing form events</title>
+</head>
+<body>
+  <div>
+    <label>Нэрээ оруулна уу!
+      <input id="name" type="text">
+    </label>
+    <br>
+    <label>Та хэлээ сонгоно уу!
+      <select id="lang">
+        <option value="mn">Mongolia</option>
+        <option value="en">English</option>
+        <option value="cn">China</option>
+        <option value="kr">Korea</option>
+      </select>
+    </label>
+    <br>
+    <button id="button" type="button">Дарна уу</button>
+    <div id="message"><br></div>
+  </div>
+<script>
+  var button = document.getElementById("button");
+
+  var onButtonClick = function(){
+    var name = document.getElementById("name").value;
+    var lang = document.getElementById("lang").value;
+
+    var greeting;
+    if(lang ==="mn")
+    {
+      greeting = " Сайн байна уу, Ноён " + name;
+    }
+    else if(lang==="en")
+    {
+      greeting = " Hello, Mr " + name;
+    }
+    else if(lang==="cn")
+    {
+      greeting = " Нихо, зй " + name;
+    }
+    else
+    {
+      greeting = " Аннёон хасеюу, " + name;
+    }
+    document.getElementById("message").textContent += greeting;
+};
+
+  button.addEventListener("click", onButtonClick);
+  </script>
+</body>
+</html>

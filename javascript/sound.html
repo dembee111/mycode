@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Sounds</title>
+</head>
+<body>
+  <a id="oow" href="D:\duu\goedoo.mp3">Тоглуулах</a>
+  <script>
+  var duuE1 = document.getElementById("oow");
+
+  var duuClick = function(e){
+    e.preventDefault();
+    var audioEl = document.createElement("audio");
+    audioEl.src = "D:\duu\goedoo.mp3";
+     audioEl.autoplay = "true";
+     document.body.appendChild(audioEl);
+  };
+  duuE1.addEventListener("click", duuClick);
+  </script>
+</body>
+</html>

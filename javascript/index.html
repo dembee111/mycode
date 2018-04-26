@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+<title>Page Title</title>
+<style>
+        p .animal {
+          color:red;
+        }
+        .catcolor {
+          color:blue;
+        }
+
+
+</style>
+<script src="js/processing.js"></script>
+
+</head>
+<body>
+<button id = "clicker">Товчлуур</button>
+<h1 id="heading">This is a Heading</h1>
+<p>This is a paragraph <span class="animal">dog</span>This is a paragraph
+  <span class="animal">dog</span>
+  This is a paragraph <span class="animal">dog
+  </span> This is a paragraph <span class="animal">dog
+  </span> This is a paragraph
+  <span class="animal">dog</span>.</p>
+
+<canvas data-processing-sources="processing.pde"></canvas>
+<canvas data-processing-sources="processing1.pde"></canvas>
+<canvas data-processing-sources="processing2.pde"></canvas>
+<canvas data-processing-sources="processing3.pde"></canvas>
+<canvas data-processing-sources="processing4.pde"></canvas>
+<script>
+
+        var clickerButton = document.getElementById("clicker");
+
+        var onButtonClick = function(){
+          clickerButton.textContent = "oh wow, you clicked me";
+        };
+
+        clickerButton.addEventListener("click",onButtonClick);
+
+        
+//document.body.innerHTML = "haha";
+
+        var headingE1 = document.querySelector("#heading");
+        console.log(headingE1);
+
+        headingE1.style.textAlign ="center";
+        headingE1.style.backgroundColor="orange";
+        headingE1.className = "catcolor";
+        headingE1.innerHTML = "<strong>Ene bol header</strong>";
+
+        //-----nuguu------------------
+        var nameEls = document.querySelectorAll("p .animal");
+        console.log(nameEls);
+        console.log(nameEls[0]);
+        nameEls.innerHTML = "cats";
+        for(var i = 0; i<nameEls.length; i++){
+          nameEls[i].innerHTML = "cat";
+        }
+</script>
+</body>
+</html>

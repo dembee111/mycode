@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+<title>Page Title</title>
+
+<style>
+.beard {
+  background: black;
+  width: : 5px;
+  height: 5px;
+  position: absolute;
+  border-radius: 2px;
+  top: 80px;
+  left: 15px;
+}
+</style>
+</head>
+<body>
+
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
+
+<img id="face" src="image\news5.jpg">
+<div id="message"> </div>
+
+<div>
+  <label>What is your name?
+      <input id="name" type="text">
+  </label>
+  <br>
+  <label>What language do you speak ?
+    <select id="lang">
+       <option value="en">English<option>
+    </select>
+</div>
+
+
+<script>
+
+ var face = document.getElementById("face");
+
+ var onMouseMove = function(event){
+   console.log(event);
+   document.getElementById("message").textContent += "Сайн байна уу! ";
+   var beard = document.createElement("div");
+            beard.className = "beard";
+            document.body.appendChild(beard);
+            beard.style.top = event.clientY + "px";
+            beard.style.left = event.clientX + "px";
+
+ };
+    face.addEventListener("mousemove", onMouseMove);
+
+</script>
+</body>
+</html>

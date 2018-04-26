@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+<title>Page Title</title>
+
+
+
+</head>
+<body>
+<div id="info"></div>
+<h1>Шоу <span id="countdown">5</span> секундын дараа эхлэх болно</h1>
+
+<script>
+ var infoDiv = document.getElementById("info");
+       console.log(window);
+       console.log(window.location);
+       infoDiv.textContent += "the url of this page is "+window.location.href;
+
+       infoDiv.textContent += "The user agent is "+window.navigator.userAgent;
+       infoDiv.textContent += " this webpage is " +outerWidth+ "by " +outerHeight;
+//---------------------------------------------------------------------
+var countdown = document.getElementById("countdown");
+
+var countItDown = function(){
+  var currentTime = parseFloat(countdown.textContent);
+  if(currentTime > 0){
+    countdown.textContent = currentTime -1;
+
+  }else{
+    window.clearInterval(timer);
+  }
+};
+var timer = window.setInterval(countItDown,1000);
+
+</script>
+</body>
+</html>

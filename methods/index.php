@@ -12,6 +12,6 @@ $abc->demo('minion','avangers','angry birds');
 // $abc->abc = "Value of abc variable changed";
 // $abc->create('param1','param2','param3');
 
-
+ABC::create('хонь','тэмээ','морь','үхэр','ямаа');
 
 ?>

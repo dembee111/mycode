@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+<title>Page Title</title>
+
+
+
+</head>
+<body>
+<div>
+
+<img id="ohnoes" src="https://www.kasandbox.org/programming-images/creatures/OhNoes.png">
+<h1>oh noes, the world will end in <span id="countdown"> 30 </span> seconds</h1>
+<div id="info"></div>
+</div>
+<script>
+//инфо елементийг олж авч байна
+var infoDiv = document.getElementById("info");
+//тоолох тоолуурыг олж авч байна
+var countdown = document.getElementById("countdown");
+//30-с доошоогоо 0 хүртэл тоолох нөхцөл даалгаварыг хийж байна
+var countItDown = function(){
+  var currentTime = parseFloat(countdown.textContent);//countdown дээр заагдсан тоог бодит динамик хувьсагч болгож байна
+  if(currentTime >0){
+    countdown.textContent = currentTime - 1;//нэг нэгээр хасагдуулах үйлдэл
+  }else{
+    window.clearInterval(timer); //хэрвээ хасагдаж байгаа тоог 0 тэй тэнцвэл зогсоож байна
+  }
+};
+var timer = window.setInterval(countItDown,1000); //доош гүйх тооны дотоод цагын интервал тохируулага
+
+var ohnoes = document.getElementById("ohnoes");//анимэ оруулах зургын елементийг олж байна
+ohnoes.style.width = "50px"; //олсон елементийн стайлд утга өгч байна.
+var startTime = new Date().getTime();
+var makeItBigger = function(){ //зургыг томосгох функц
+    var currTime = new Date().getTime();
+    var newWidth = (50 +((currTime-startTime)/1000) * 30);
+                ohnoes.style.width = newWidth +"px";
+                if (newWidth < 300){
+                    window.requestAnimationFrame(makeItBigger);
+                }
+  };
+  // infoDiv.textContent = ohnoes.style.width; //инфо див елементэд зургын өргөний хэмжээг харуулах
+  // ohnoes.style.width = (parseFloat(ohnoes.style.width) + 1)+"px";// зургын өргөний хэмжээн дээр нэгээр нэмэгдүүлэх
+
+
+makeItBigger();
+</script>
+</body>
+</html>

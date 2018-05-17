@@ -22,25 +22,14 @@ class ABC
        // return $this->array[$name];
        echo "Trying to access function name is $name";
        echo "<pre>";
-       foreach($array =>$key as $d)
-       {
-         <!DOCTYPE html>
-         <>
-         <table>
-         <th>
-         <tr>
-           $key
-           </tr>
-         </th>
-         <tb>
-         <tr>
-         $d
-         </tr>
-         </tb>
-         </table>
-       }
-  }
+       print_r($array);
 
+  }
+public static function __callStatic($name, $array)
+{
+    echo "You are trying to call function named: $name, with following parameters:";
+    print_r($array);
+}
 public function __get($name)
 {
   if(array_key_exists($name, $this->array))

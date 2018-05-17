@@ -13,6 +13,6 @@ echo BR;
 
 $game_genres = array('asian', array('Taiwan', 'Mongolia', 'China', 'Korea', 'Japan'), 'Africa', 'Europe', 'America', 'Australia');
 
-foreach ($game_genres = array('1' => 0,);)
+foreach ($game_genres = array('1' => 0,));
 
 ?>

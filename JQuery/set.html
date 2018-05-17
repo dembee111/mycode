@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+<title>Page Title</title>
+
+</head>
+<body>
+  <div id="foo" style="background:#98bf21; height:80px; width:150px; position:static;">
+
+  <p id="test1">УИХ дэлгүүрийн баруун талд уулзах уу</p>
+</div>
+<br>
+<div id="foo1" style="background:#98bf21; height:80px; width:150px; position:static;">
+
+<p id="test2">Хойд нас гэж байдаг боловуу? 20 жил бодлоо гайхаад л байна</p>
+</div>
+<br>
+
+  <input type="text" id="test3" value="хэд наслахыг хүсч байна? үхээд яг яах бол!!"><br>
+  <br>
+
+  <button id="btn1">Set Text</button><br>
+  <br>
+  <button id="btn2">SET HTML</button><br>
+  <br>
+  <button id="btn3">Set Value</button><br>
+
+
+<script src="assets/jquery.js"></script>
+<script>
+$(document).ready(function(){
+
+  $('div').mouseenter(function(){
+
+    $('#foo1').focus(function(){
+      $(this).css("background","#cccccc");
+    });
+    $('#foo1').blur(function(){
+      $(this).css("background","#ffffff");
+    });
+
+  });
+$('#btn1').click(function(){
+  $('#test1').text("Hello world");
+});
+$('#btn2').click(function(){
+  $('#test2').html("<b>Hello world</b>");
+});
+$('#btn3').click(function(){
+  $('#test3').val("Hahahaha");
+});
+
+});
+</script>
+</body>
+</html>

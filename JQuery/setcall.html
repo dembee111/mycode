@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+<title>Page Title</title>
+
+</head>
+<body>
+<p><a href="http://www.gegeensoft.mn" title="google" id="google">Gegeensoft</a></p>
+
+  <button>Change Url value</button>
+
+<script src="assets/jquery.js"></script>
+<script>
+$(document).ready(function(){
+
+$("button").click(function(){
+
+  $("#google").attr("href", function(i, origValue){
+    return origValue + "/about";
+  });
+
+});
+});
+</script>
+</body>
+</html>

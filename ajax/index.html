@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+<title>Page Title</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+$(document).ready(function(){
+  $("#creditcategoryid").change(function(){
+    var songolt = $('#creditcategoryid option:selected');
+if (songolt.text() =="Алт"){
+  $('#getdayid1').show();
+  // $('#div1').load("test.php");
+}else if(songolt.text() =="Гар утас"){
+  $('#getdayid2').show();
+}else{
+  $('#getdayid').show();
+}
+
+
+  });
+});
+
+</script>
+</head>
+<body>
+
+<select class="form-control" id="creditcategoryid" name="creditcatid" title="Зээлийн ангилал сонгох">
+      <option id="op2" value="">Ангилал сонгох</option>
+      <option value="">Алт</option>
+      <option value="">Гар утас</option>
+      <option value="">Компьютер</option>
+</select>
+<hr>
+<select class="form-control bignumber" style="display:none" name="days" id="getdayid" fid="79" title="Хоног сонгох">
+     <option value="">7</option>
+     <option value="">10</option>
+     <option value="">14</option>
+</select>
+<select class="form-control bignumber" style="display:none" name="days" id="getdayid1" fid="79" title="Хоног сонгох">
+     <option value="">14</option>
+     <option value="">30</option>
+
+</select>
+<select class="form-control bignumber" style="display:none" name="days" id="getdayid2" fid="79" title="Хоног сонгох">
+     <option value="">7</option>
+
+</select>
+<hr>
+<div id="div1">
+
+</div>
+</body>
+</html>

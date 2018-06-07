@@ -170,8 +170,7 @@ $(document).on('click', '.remove_details', function(){
 $('#action_alert').dialog({
   autoOpen:false
 });
-$('#user_form').on('submit', function(event){
-  event
+$('#user_form').on('submit', function(e){
   e.preventDefault();
   var count_data = 0;
   $('.first_name').each(function(){

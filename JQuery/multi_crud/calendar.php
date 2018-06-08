@@ -15,6 +15,8 @@ echo date("m:t-d-M-Y");
 echo BR;
 echo date("d-M-Y",easter_date());
 echo BR;
+//----------------date------------------------------------------
+
 var_dump(checkdate(6,7,2018));
 echo BR;
 
@@ -131,5 +133,7 @@ foreach ($sun_info as $key=>$val)
       echo idate("Y") . "<br>";
       echo idate("z") . "<br>";
       echo idate("Z") . "<br>";
+
+
 
 ?>

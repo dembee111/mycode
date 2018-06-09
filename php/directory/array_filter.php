@@ -26,5 +26,12 @@ $g = scandir($dir, 1);
 
 print_r($g);
 
+$file = "Mongol.jpg";
+
+$data = (explode(".", $file));
+echo $data[0];
+echo BR;
+echo rand().'.'.$data[1];
+
 
 ?>

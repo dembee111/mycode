@@ -110,13 +110,22 @@ if(isset($_POST["action"]))
                <td>
                <img src = "'.$path.'" class="img-thumbnail" height ="50" width="50" /></td>
                <td>'.$file.'</td>
-               <td><button name="remove_file" class="remove_file btn btn-danger btn-xs id="'.$path.'>Remove</button></td>
+               <td><button name="remove_file" class="remove_file btn btn-danger btn-xs" id="'.$path.'">Remove</button></td>
            </tr>
         ';
       }
     }
     $output .= '</table>';
     echo $output;
+  }
+  if($_POST["action"] == "remove_file")
+  {
+      if(file_exists($_POST["path"]))
+      {
+
+        unlink($_POST["path"]);
+        echo ' File Deleted';
+      }
   }
 }
 

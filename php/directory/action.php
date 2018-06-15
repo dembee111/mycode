@@ -1,6 +1,53 @@
 <?php
 //------------Хавтас харах------------------------
 
+function format_folder_size($size)
+{
+  if($size >= 1073741824)
+  {
+    $size = number_format($size / 1073741824, 2) . ' GB';
+  }
+  else if($size >= 1048576)
+  {
+     $size = number_format($size / 1048576, 2) . ' MB';
+  }
+  else if($size >= 1024)
+  {
+    $size = number_format($size / 1024, 2) . ' KB';
+  }
+  else if($size > 1)
+  {
+    $size = $size . ' bytes';
+  }
+  else if($size == 1)
+  {
+    $size = $size . ' byte';
+  }
+  else
+  {
+    $size = ' 0 bytes';
+  }
+  return $size;
+}
+
+function get_folder_size($folder_name)
+{
+  $total_size = 0;
+  $file_data = scandir($folder_name);
+  foreach($file_data as $file)
+  {
+    if($file === '.' OR $file === '..')
+    {
+      continue;
+    }
+    else
+    {
+      $path = $folder_name . '/' . $file;
+      $total_size = $total_size + filesize($path);
+    }
+  }
+  return format_folder_size($total_size);
+}
 if(isset($_POST["action"]))
 {
   if($_POST["action"] =="fetch")
@@ -11,6 +58,7 @@ if(isset($_POST["action"]))
           <tr>
               <th>Folder Name</th>
               <th>Total files</th>
+              <th>Size</th>
               <th>Update</th>
               <th>Delete</th>
               <th>Upload File</th>
@@ -25,6 +73,7 @@ if(isset($_POST["action"]))
            <tr>
                 <td>'.$name.'</td>
                 <td>'.(count(scandir($name)) - 2).'</td>
+                <td>'.get_folder_size($name).'</td>
                 <td><button type="button" name="update"
                 data-name="'.$name.'" class="update btn
                 btn-warning btn-xs">Update</button></td>
@@ -109,7 +158,8 @@ if(isset($_POST["action"]))
            <tr>
                <td>
                <img src = "'.$path.'" class="img-thumbnail" height ="50" width="50" /></td>
-               <td>'.$file.'</td>
+               <td contenteditable="true" data-folder_name="'.$_POST["folder_name"].'"
+               data-file_name = "'.$file.'" class="change_file_name">'.$file.'</td>
                <td><button name="remove_file" class="remove_file btn btn-danger btn-xs" id="'.$path.'">Remove</button></td>
            </tr>
         ';
@@ -126,6 +176,39 @@ if(isset($_POST["action"]))
         unlink($_POST["path"]);
         echo ' File Deleted';
       }
+  }
+  if($_POST['action']=="delete")
+  {
+    $files = scandir($_POST["folder_name"]);
+    foreach($files as $file)
+    {
+      if($file == '.' || $file === '..')
+      {
+        continue;
+      }
+      else
+      {
+         unlink($_POST["folder_name"] . '/' .$file);
+      }
+    }
+    if(rmdir($_POST["folder_name"]))
+    {
+       echo 'Folder Deleted';
+    }
+
+  }
+  if($_POST["action"] == "change_file_name")
+  {
+    $old_name = $_POST["folder_name"] . '/' . $_POST["old_file_name"];
+    $new_name = $_POST["folder_name"] . '/' . $_POST["new_file_name"];
+    if(rename($old_name, $new_name))
+    {
+      echo 'File name change successfully';
+    }
+    else
+    {
+      echo 'There is an error';
+    }
   }
 }
 

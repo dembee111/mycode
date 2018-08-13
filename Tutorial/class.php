@@ -23,10 +23,10 @@ class Game{
 }
 
 $game = new Game;
-$game->name = 'Bioshock Infinite';
-$game->price = 14.99;
-$game->photo = 'bioshock-infinite.jpg';
-$game->print_game();
+// $game->name = 'Bioshock Infinite';
+// $game->price = 14.99;
+// $game->photo = 'bioshock-infinite.jpg';
+// $game->print_game();
 
 $game->set_game('Counter Strike Go', 34.99, 'csgo.jpg');
 $game->print_game();
